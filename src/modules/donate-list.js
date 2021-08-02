@@ -16,6 +16,8 @@ export default class DonateList{
         return donateItem
     }
 
+
+
     render(){
         const mainContainer = $('div','donates-container')
         body.append(mainContainer)
