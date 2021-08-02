@@ -1,9 +1,18 @@
 import $ from '../core/util/createElem'
 import {body} from '../core/util/globalVars'
 export default class DonateList{
-
+    #donates=[]
     constructor(donates){
-        this.donates=donates
+        this.#donates=donates
+        this.donatesContainer = $('div','donates-container__donates')
+    }
+
+    updateDonates(updateDonates){
+        if(updateDonates.length===0)return
+        updateDonates.map(e=>{
+            const item = this.#createDonteItem(e.date,e.amount)
+            this.donatesContainer.append(item)
+        })
     }
 
     #createDonteItem(when,amount){
@@ -11,9 +20,13 @@ export default class DonateList{
         donateItem.textContent=`${when}`
         const money = $('b')
         money.textContent=`${amount}$`
-        console.log(money)
         donateItem.append(money)
         return donateItem
+    }
+
+    getTotalAmount(){
+        const tmpArr=Object.values(this.#donates).filter(e=>!isNaN(e))
+        return tmpArr.reduce((summ,current)=>summ=+current,0)
     }
 
 
@@ -26,14 +39,10 @@ export default class DonateList{
         donateTitle.textContent = 'Список донатов'
         mainContainer.append(donateTitle)
 
-        const donatesContainer = $('div','donates-container__donates')
-        mainContainer.append(donatesContainer)
+        
+        mainContainer.append(this.donatesContainer)        
 
-        this.donates.map(e=>{
-            const item = this.#createDonteItem(e.date,e.amount)
-            donatesContainer.append(item)
-        })
-
+        this.updateDonates(this.#donates)
     }
 
 }
