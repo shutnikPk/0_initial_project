@@ -10,4 +10,8 @@ const mockDonates = [
 
 const app = new App()
 app.run()
-setTimeout(app.createNewDonate({ amount: 1, date: new Date() }),10)
+document.addEventListener('keydown',event=>{
+    if(event.key==='Tab'){app.createNewDonate({ amount: 1, date: new Date() })
+    }
+})
+

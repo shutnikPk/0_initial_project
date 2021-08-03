@@ -1,27 +1,30 @@
 import $  from '../core/util/createElem'
-import {body} from '../core/util/globalVars'
+import {body} from '../core/constants/globalVars'
+import {Settings}from '../core/constants/settings'
+
 export default class DonateForm{
+
+    titleForm = $('h1','',{'id':'total-amount'})
 
     constuctor(totalAmount){
         this.totalAmount=totalAmount
     }
     updateTotalAmount(newAmount){
         if(newAmount){
-            return`${newAmount}$`
+        return this.titleForm.textContent=`${newAmount}$`
         }
-        return '0$'
+        return this.titleForm.textContent=`0${Settings.currency}`
     }
 
     render(){        
         const donateForm = $('form','donate-form')
         body.append(donateForm)
 
-        const titleForm = $('h1','',{'id':'total-amount'})
-        titleForm.textContent=this.updateTotalAmount(this.totalAmount)
-        donateForm.append(titleForm)
+        this.titleForm.textContent=this.updateTotalAmount(this.totalAmount)
+        donateForm.append(this.titleForm)
 
         const labelForm = $('label','donate-form__input-label')
-        labelForm.textContent='Введите сумму в $'
+        labelForm.textContent=`Введите сумму в ${Settings.currency}`
         donateForm.append(labelForm)
 
         const inputForm = $('input','donate-form__donate-input',{
