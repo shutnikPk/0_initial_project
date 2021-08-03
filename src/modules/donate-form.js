@@ -11,7 +11,7 @@ export default class DonateForm{
     }
     updateTotalAmount(newAmount){
         if(newAmount){
-        return this.titleForm.textContent=`${newAmount}$`
+        return this.titleForm.textContent=`${newAmount}${Settings.currency}`
         }
         return this.titleForm.textContent=`0${Settings.currency}`
     }

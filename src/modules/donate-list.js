@@ -1,5 +1,6 @@
 import $ from '../core/util/createElem'
 import {body} from '../core/constants/globalVars'
+import {Settings}from '../core/constants/settings'
 export default class DonateList{
     #donates=[]
     constructor(donates){

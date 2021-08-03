@@ -1,5 +1,6 @@
 import DonateList from '../modules/donate-list'
 import DonateForm from '../modules/donate-form'
+import {getFormattedTime} from '../core/util/index'
 export default class App {
         state={
         donates:[],
@@ -27,7 +28,7 @@ export default class App {
             const donate={}
             donate.amount=Number(input.value)
             input.value=''
-            donate.date=new Date()
+            donate.date=getFormattedTime(new Date())
             this.createNewDonate(donate)
         })   
     }
