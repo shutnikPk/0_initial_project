@@ -3,12 +3,13 @@ import {body} from '../core/constants/globalVars'
 import {Settings}from '../core/constants/settings'
 
 export default class DonateForm{
-
-    titleForm = $('h1','',{'id':'total-amount'})
-
-    constuctor(totalAmount){
+    constructor(totalAmount,callback){
         this.totalAmount=totalAmount
+        this.callback=callback
+        console.log(this.callback)
     }
+    titleForm = $('h1','',{'id':'total-amount'})
+    count=0
     updateTotalAmount(newAmount){
         if(newAmount){
         return this.titleForm.textContent=`${newAmount}${Settings.currency}`
@@ -16,7 +17,7 @@ export default class DonateForm{
         return this.titleForm.textContent=`0${Settings.currency}`
     }
 
-    render(){        
+    render(){                
         const donateForm = $('form','donate-form')
         body.append(donateForm)
 

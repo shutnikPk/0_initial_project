@@ -5,7 +5,7 @@ export default class DonateList{
     #donates=[]
     constructor(donates){
         this.#donates=donates
-        this.donatesContainer = $('div','donates-container__donates')
+        this.donatesContainer = $('div','donates-container__donates')        
     }
     
     updateDonates(updateDonates){
