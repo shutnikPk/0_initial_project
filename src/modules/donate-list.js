@@ -11,10 +11,11 @@ export default class DonateList {
         this.#donates = donates
         this.donatesContainer = $('div', 'donates-container__donates')
     }
-
+  
     updateDonates(updateDonates) {
         if (updateDonates.length === 0) return
         while (this.donatesContainer.firstChild) {
+
             this.donatesContainer.firstChild.remove()
         }
         updateDonates.map(e => {
@@ -35,6 +36,7 @@ export default class DonateList {
     getTotalAmount() {
         const tmpArr = this.#donates.map(e => e.amount)
         return tmpArr.reduce((summ, current) => summ + current, 0)
+
     }
 
     render() {

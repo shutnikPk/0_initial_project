@@ -6,6 +6,7 @@ export default class App {
         donates:[],
         totalAmount:0
     }
+
     createNewDonate(newDonate){
         this.state.donates.push(newDonate)
         this.state.totalAmount=this.donateList.getTotalAmount()
@@ -22,9 +23,6 @@ export default class App {
         const donateForm = document.querySelector('.donate-form')
         donateForm.addEventListener('submit',event=>{
             event.preventDefault();
-            const input=document.querySelector('input')
-            const donate={}
-            donate.amount=Number(input.value)
             input.value=''
             donate.date=getFormattedTime(new Date())
             this.donateForm.callback(donate)
