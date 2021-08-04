@@ -7,28 +7,16 @@ export default class App {
         totalAmount:0
     }
 
-    myNewDonate(){
-        const input=document.querySelector('input')
-        const donate={}
-        donate.amount=Number(input.value)        
-        donate.date=getFormattedTime(new Date())
-        return donate
-    }
-            
-    donateList = new DonateList(this.state.donates)
-    donateForm = new DonateForm(this.state.totalAmount,this.createNewDonate(this.myNewDonate()))
-
-    createNewDonate (newDonate){
-        if(newDonate)return
+    createNewDonate(newDonate){
         this.state.donates.push(newDonate)
         this.state.totalAmount=this.donateList.getTotalAmount()
         console.log(this.donateList.getTotalAmount())
         this.donateList.updateDonates(this.state.donates)
         this.donateForm.updateTotalAmount(this.state.totalAmount)
     }
-    
-    
+    donateForm = new DonateForm(this.state.totalAmount,this.createNewDonate.bind(this))
 
+    donateList = new DonateList(this.state.donates)
     run(){
         this.donateForm.render()
         this.donateList.render()
@@ -36,11 +24,10 @@ export default class App {
         donateForm.addEventListener('submit',event=>{
             event.preventDefault();
             input.value=''
-            this.donateForm.newDonate.bind(this,donate)
-        })   
+            donate.date=getFormattedTime(new Date())
+            this.donateForm.callback(donate)
+        })
     }
-
-
 }
 
 

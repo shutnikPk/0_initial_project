@@ -3,19 +3,10 @@ import {body} from '../core/constants/globalVars'
 import {Settings}from '../core/constants/settings'
 
 export default class DonateForm{
-<<<<<<< HEAD
-
-    titleForm = $('h1','',{'id':'total-amount'})
-
-    constuctor(totalAmount,callback){
-        this.totalAmount=totalAmount
-        this.newDonate=callback
-=======
     constructor(totalAmount,callback){
         this.totalAmount=totalAmount
         this.callback=callback
         console.log(this.callback)
->>>>>>> 940a789dcaebfe796d0ec7cc5dc7ad9511396a5a
     }
     titleForm = $('h1','',{'id':'total-amount'})
     count=0
