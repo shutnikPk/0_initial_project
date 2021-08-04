@@ -6,7 +6,6 @@ export default class DonateForm{
     constructor(totalAmount,callback){
         this.totalAmount=totalAmount
         this.callback=callback
-        console.log(this.callback)
     }
     titleForm = $('h1','',{'id':'total-amount'})
     count=0

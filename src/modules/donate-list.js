@@ -1,10 +1,8 @@
 import $ from '../core/util/createElem'
-import {
-    body
-} from '../core/constants/globalVars'
-import {
-    Settings
-} from '../core/constants/settings'
+import {body} from '../core/constants/globalVars'
+import {Settings} from '../core/constants/settings'
+import * as Utils from '../core/util/index'
+
 export default class DonateList {
     #donates = []
     constructor(donates) {
@@ -25,10 +23,14 @@ export default class DonateList {
     }
 
     #createDonteItem(when, amount) {
-        const donateItem = $('div', 'donate-item')
+        const donateItem = $('div', 'donate-item') 
+        console.log(Utils.getFormattedTime)
+
+        when=Utils.getFormattedTime(when)
+        
         donateItem.textContent = `${when}`
         const money = $('b')
-        money.textContent = `${amount}$`
+        money.textContent = `${amount}${Settings.currency}`
         donateItem.append(money)
         return donateItem
     }

@@ -38,7 +38,6 @@ export default class App {
             const donate={}
             donate.amount=Number(input.value)
             input.value=''
-            donate.date=Utils.getFormattedTime(new Date())
             this.donateForm.callback(donate)
         })
     }
