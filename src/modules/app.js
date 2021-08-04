@@ -13,12 +13,9 @@ export default class App {
         this.donateList.updateDonates(this.state.donates)
         this.donateForm.updateTotalAmount(this.state.totalAmount)
     }
-    donateForm = new DonateForm(this.state.totalAmount,this.createNewDonate.bind(this))        
-    
+    donateForm = new DonateForm(this.state.totalAmount,this.createNewDonate.bind(this))
+
     donateList = new DonateList(this.state.donates)
-
-    
-
     run(){
         this.donateForm.render()
         this.donateList.render()
@@ -31,10 +28,8 @@ export default class App {
             input.value=''
             donate.date=getFormattedTime(new Date())
             this.donateForm.callback(donate)
-        })   
+        })
     }
-
-
 }
 
 
