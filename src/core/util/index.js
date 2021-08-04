@@ -4,6 +4,6 @@ export function getFormattedTime(date){
 }
 
 export function calculateSumOfNumbers(arr){
-    if(arr.length)return
+    if(!arr.length)return
     return arr.reduce((summ,current)=>summ+current,0)
 }
