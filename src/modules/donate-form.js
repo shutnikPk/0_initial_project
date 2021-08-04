@@ -6,8 +6,9 @@ export default class DonateForm{
 
     titleForm = $('h1','',{'id':'total-amount'})
 
-    constuctor(totalAmount){
+    constuctor(totalAmount,callback){
         this.totalAmount=totalAmount
+        this.newDonate=callback
     }
     updateTotalAmount(newAmount){
         if(newAmount){

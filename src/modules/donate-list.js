@@ -9,7 +9,7 @@ export default class DonateList{
     }
     
     updateDonates(updateDonates){
-        if(updateDonates.length===0)return
+        if(updateDonates.length)return
         while(this.donatesContainer.firstChild){
             this.donatesContainer.firstChild.remove()
         }
@@ -29,6 +29,7 @@ export default class DonateList{
     }
 
     getTotalAmount(){
+        if(this.#donates.length)return
         const tmpArr=this.#donates.map(e=>e.amount)
         return tmpArr.reduce((summ,current)=>summ+current,0)
     }
