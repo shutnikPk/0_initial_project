@@ -6,8 +6,7 @@ import {
     Settings
 } from '../core/constants/settings'
 export default class DonateList {
-    #
-    donates = []
+    #donates = []
     constructor(donates) {
         this.#donates = donates
         this.donatesContainer = $('div', 'donates-container__donates')
@@ -24,7 +23,7 @@ export default class DonateList {
         })
     }
 
-    # createDonteItem(when, amount) {
+    #createDonteItem(when, amount) {
         const donateItem = $('div', 'donate-item')
         donateItem.textContent = `${when}`
         const money = $('b')
